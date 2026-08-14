@@ -3,7 +3,7 @@
 > DeepSeek Harness(DSH)Web 客户端插件:用量趋势视图。
 > 在会话的「聊天 / 轨迹」旁新增「趋势」标签页,把持久化会话日志里的逐请求用量数据画成 SVG 图表:**每请求 Token 流量堆叠柱**、**累计输入/输出曲线**、**每请求耗时柱**,外加会话聚合统计卡片。
 
-![DSH](https://img.shields.io/badge/DSH-0.1.0--rc.6-blue) ![version](https://img.shields.io/badge/version-1.0.0-green) ![license](https://img.shields.io/badge/license-MIT-lightgrey) ![platform](https://img.shields.io/badge/platform-web%20client-orange)
+![DSH](https://img.shields.io/badge/DSH-0.1.0--rc.6-blue) ![version](https://img.shields.io/badge/version-1.0.1-green) ![license](https://img.shields.io/badge/license-MIT-lightgrey) ![platform](https://img.shields.io/badge/platform-web%20client-orange)
 
 ---
 
@@ -195,6 +195,8 @@ A:不支持。图表是浏览器 UI,只对 web profile 有意义。
 
 ## 版本历史
 
+- **1.0.1**(2026-08):修复视图崩溃——图表组件改为经 `createElement` 渲染,消除
+  「Rendered more hooks than during the previous render」导致的标签页空白。
 - **1.0.0**(2026-08):开源发布版本。会话「趋势」视图标签页:每请求 Token 堆叠柱、
   累计输入/输出曲线、墙钟耗时柱、聚合统计卡片;持久化会话日志数据源。
 
