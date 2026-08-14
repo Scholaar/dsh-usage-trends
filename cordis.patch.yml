@@ -1,0 +1,9 @@
+# @local/usage-trends bundle patch
+# 「趋势」视图标签:逐请求 Token 流量/累计曲线/耗时图表 + 会话聚合统计。
+# 数据来自持久化会话日志(connection.api.sessions.history),与轨迹视图互补:
+# 轨迹是逐请求明细表格,本插件是把同一批数据画成图。
+# 用法一:合并进 profile 的 cordis.patch.yml(持久化)
+# 用法二:作为 bundle 安装 —— dsh plugin --profile web add <此包>
+- insert:
+    - id: usage-trends
+      name: '@local/usage-trends'
