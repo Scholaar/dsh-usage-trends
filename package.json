@@ -1,6 +1,6 @@
 {
   "name": "@local/usage-trends",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "用量趋势视图:在会话的「聊天/轨迹」旁新增「趋势」标签页,以 SVG 图表展示逐请求的 Token 流量(计费输入堆叠 + 输出)、累计曲线与请求耗时,并给出会话聚合统计。数据经标准连接层(connection.api.sessions.history)从持久化会话日志读取,重启后自动恢复。客户端插件,Host 半身为空。",
   "files": [
     "lib",

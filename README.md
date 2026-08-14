@@ -3,7 +3,7 @@
 > DeepSeek Harness(DSH)Web 客户端插件:用量趋势视图。
 > 在会话的「聊天 / 轨迹」旁新增「趋势」标签页,把持久化会话日志里的逐请求用量数据画成 SVG 图表:**每请求 Token 流量堆叠柱**、**累计输入/输出曲线**、**每请求耗时柱**,外加会话聚合统计卡片。
 
-![DSH](https://img.shields.io/badge/DSH-0.1.0--rc.6-blue) ![version](https://img.shields.io/badge/version-1.0.1-green) ![license](https://img.shields.io/badge/license-MIT-lightgrey) ![platform](https://img.shields.io/badge/platform-web%20client-orange)
+![DSH](https://img.shields.io/badge/DSH-0.1.0--rc.6-blue) ![version](https://img.shields.io/badge/version-1.1.0-green) ![license](https://img.shields.io/badge/license-MIT-lightgrey) ![platform](https://img.shields.io/badge/platform-web%20client-orange)
 
 ---
 
@@ -24,6 +24,7 @@ DSH 官方客户端的**轨迹视图**以表格形式给出逐请求的 Token �
 
 - **第一公民视图标签**:注册在官方 `conversation.view` 槽位,与「聊天」「轨迹」并列,无任何官方界面被替换
 - **每请求 Token 流量**:堆叠柱把计费输入拆成缓存读 / 未缓存输入 / 缓存写三段,顶部叠加输出;悬停任意柱显示该次请求的完整明细
+- **固定列宽 + 横向滚动**:柱状图每根柱固定 8px 宽、10px 槽位,问答轮次再多也不会挤成细线;请求较多时图表横向滚动,悬浮命中与逐请求精度始终不变
 - **累计曲线**:计费输入(带面积填充)与输出随请求推进的累计走势
 - **耗时分布**:每请求墙钟耗时柱,悬停显示起止时间
 - **聚合统计卡片**:请求数、用户轮次、计费输入/输出合计、缓存命中率、单请求峰值、总耗时、平均耗时
@@ -171,7 +172,7 @@ A:两者读的是同一份持久化会话日志,口径一致;轨迹是逐请求�
 
 **Q:可以调整图表高度吗?**
 A:可以。改 `lib/client.js` 顶部 `CSS` 字符串里 `.utx-chart-svg` 的 `height` 即可,
-替换包目录后重启 DSH。
+替换包目录后重启 DSH。柱状图的列宽在组件内 `SLOT`/`BAR_W` 常量处调整。
 
 **Q:想在 headless/tui 下用?**
 A:不支持。图表是浏览器 UI,只对 web profile 有意义。
@@ -195,6 +196,8 @@ A:不支持。图表是浏览器 UI,只对 web profile 有意义。
 
 ## 版本历史
 
+- **1.1.0**(2026-08):柱状图改为固定列宽(8px/根)+ 横向滚动,大量请求下不再
+  挤成细线,悬浮查看恢复舒适;Token 柱与耗时柱共用同一列宽规格。
 - **1.0.1**(2026-08):修复视图崩溃——图表组件改为经 `createElement` 渲染,消除
   「Rendered more hooks than during the previous render」导致的标签页空白。
 - **1.0.0**(2026-08):开源发布版本。会话「趋势」视图标签页:每请求 Token 堆叠柱、
